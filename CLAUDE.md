@@ -2,6 +2,20 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Git Workflow
+
+After completing any meaningful unit of work — a new feature, a bug fix, a new file, or a significant edit — commit and push to GitHub immediately. Never leave work uncommitted at the end of a session.
+
+Commit message format: short imperative summary on the first line (e.g. `Add enemy collision logic`, `Fix player health reset on new game`). Push after every commit:
+
+```bash
+git add <specific files>
+git commit -m "your message"
+git push
+```
+
+Always add files by name, not `git add .`, to avoid accidentally staging unintended files.
+
 ## Running the Games
 
 Both games are static HTML/JS — open directly in a browser, no server needed:
