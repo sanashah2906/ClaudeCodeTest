@@ -17,6 +17,7 @@ No build step, no package manager, no dependencies.
 
 ```
 tictactoe.html          # Self-contained 2-player Tic Tac Toe (HTML + CSS + JS in one file)
+CLAUDE.md               # This file
 shooter/
   index.html            # Entry point — loads all JS in dependency order via <script> tags
   js/
@@ -29,6 +30,18 @@ shooter/
     hud.js              # HUD overlay, menu/game-over/level-complete screens
     main.js             # GAME object, requestAnimationFrame loop, setState() state machine
 ```
+
+## Tic Tac Toe Architecture
+
+Single self-contained file (`tictactoe.html`) — HTML, CSS, and JS all inline. No dependencies.
+
+**State**: Three module-level variables drive the entire game — `board` (9-element array of `''|'X'|'O'`), `current` (active player), `over` (boolean lock). The `scores` object (`{X, O, Draw}`) persists across rounds and is never reset until page reload.
+
+**Win detection** (`checkWin`): Iterates the 8 hardcoded winning triplets (`WINS`) and returns the matching index triple, or `null`. Called after every move; the returned indices are used to add the `.win` CSS class for the highlight glow.
+
+**Cell rendering**: Cells are plain `<div>` elements identified by `data-i` attributes (0–8). On click, `board[i]` is set, `textContent` is written directly, and CSS classes (`.x`/`.o`/`.taken`/`.win`) drive all visual state — no canvas, no JS drawing.
+
+**`init()`**: Resets `board`, `current`, `over`, strips all classes from cells, and clears `textContent`. Does **not** reset `scores`.
 
 ## Shooter Game Architecture
 
