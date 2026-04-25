@@ -43,6 +43,10 @@ Single self-contained file (`tictactoe.html`) — HTML, CSS, and JS all inline. 
 
 **`init()`**: Resets `board`, `current`, `over`, strips all classes from cells, and clears `textContent`. Does **not** reset `scores`.
 
+**Git history**:
+- `0da3fb4` — Initial commit: "Add Tic Tac Toe web game" (Apr 25 2026) — 2-player browser game with score tracking, win detection, and retro dark theme.
+- Repo: https://github.com/sanashah2906/ClaudeCodeTest
+
 ## Shooter Game Architecture
 
 **No modules, no bundler.** All globals. Scripts must be loaded in dependency order in `index.html`.
